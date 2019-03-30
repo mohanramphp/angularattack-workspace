@@ -7,3 +7,4 @@
 4. Core, Shared and Game module intial setup. - done
 5. App and Game module routing configuration. - done
 6. Game, board and square setup - done
+7. Logic to handle the game by keeping state in board component - done
