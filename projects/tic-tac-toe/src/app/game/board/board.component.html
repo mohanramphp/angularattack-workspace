@@ -1,18 +1,6 @@
 <div>
-  <div class="status">game status</div>
-  <div class="board-row">
-    <app-square></app-square>
-    <app-square></app-square>
-    <app-square></app-square>
-  </div>
-  <div class="board-row">
-    <app-square></app-square>
-    <app-square></app-square>
-    <app-square></app-square>
-  </div>
-  <div class="board-row">
-    <app-square></app-square>
-    <app-square></app-square>
-    <app-square></app-square>
+  <div class="status">Next player: X</div>
+  <div class="board-row" *ngFor="let row of rows">
+    <app-square *ngFor="let column of row" [value]="column"></app-square>
   </div>
 </div>
