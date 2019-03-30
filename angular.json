@@ -2,5 +2,135 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "tic-tac-toe": {
+      "root": "projects/tic-tac-toe/",
+      "sourceRoot": "projects/tic-tac-toe/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tic-tac-toe",
+            "index": "projects/tic-tac-toe/src/index.html",
+            "main": "projects/tic-tac-toe/src/main.ts",
+            "polyfills": "projects/tic-tac-toe/src/polyfills.ts",
+            "tsConfig": "projects/tic-tac-toe/tsconfig.app.json",
+            "assets": [
+              "projects/tic-tac-toe/src/favicon.ico",
+              "projects/tic-tac-toe/src/assets"
+            ],
+            "styles": [
+              "projects/tic-tac-toe/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tic-tac-toe/src/environments/environment.ts",
+                  "with": "projects/tic-tac-toe/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tic-tac-toe:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tic-tac-toe:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tic-tac-toe:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tic-tac-toe/src/test.ts",
+            "polyfills": "projects/tic-tac-toe/src/polyfills.ts",
+            "tsConfig": "projects/tic-tac-toe/tsconfig.spec.json",
+            "karmaConfig": "projects/tic-tac-toe/karma.conf.js",
+            "styles": [
+              "projects/tic-tac-toe/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/tic-tac-toe/src/favicon.ico",
+              "projects/tic-tac-toe/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tic-tac-toe/tsconfig.app.json",
+              "projects/tic-tac-toe/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tic-tac-toe-e2e": {
+      "root": "projects/tic-tac-toe-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/tic-tac-toe-e2e/protractor.conf.js",
+            "devServerTarget": "tic-tac-toe:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tic-tac-toe:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/tic-tac-toe-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "tic-tac-toe"
 }
