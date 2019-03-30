@@ -1,6 +1,14 @@
 <div>
-  <div class="status">Next player: X</div>
+  <div class="status" *ngIf="!winner;else winnerTemplate">Next player: {{xIsNext ? 'X' : 'O'}}</div>
+  <ng-template #winnerTemplate>
+    <div class="status">Winner: {{winner}}</div>
+  </ng-template>
   <div class="board-row" *ngFor="let row of rows">
-    <app-square *ngFor="let column of row" [value]="column"></app-square>
+    <app-square *ngFor="let column of row" [value]="squares[column]" [disabled]="!!winner"
+      (squareSelection)="handleSquareSelection(column)">
+    </app-square>
+  </div>
+  <div class="action-button-container">
+    <button (click)="reset()">Reset Game</button>
   </div>
 </div>

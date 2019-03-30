@@ -1,1 +1,2 @@
-<button class="square">{{value}}</button>
+<button class="square" [class.disabled]="disabled" (click)="squareSelection.emit()"
+    [disabled]="disabled">{{value}}</button>
