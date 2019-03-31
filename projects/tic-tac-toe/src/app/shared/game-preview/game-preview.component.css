@@ -1,0 +1,15 @@
+ol, ul {
+    padding-left: 30px;
+  }
+
+  button {
+    margin: 6px;
+    height: 20px;
+    width: 132px;
+  }
+
+  button.selected {
+    background: #3c3c3c;
+    color: aliceblue;
+    border: 0px;
+  }

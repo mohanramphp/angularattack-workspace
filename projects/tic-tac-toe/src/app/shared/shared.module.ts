@@ -8,7 +8,8 @@ import { GamePreviewComponent } from './game-preview/game-preview.component';
     CommonModule
   ],
   exports: [
-    CommonModule
+    CommonModule,
+    GamePreviewComponent
   ]
 })
 export class SharedModule { }

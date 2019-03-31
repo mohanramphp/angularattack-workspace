@@ -1,3 +1,6 @@
-<p>
-  game-preview works!
-</p>
+<ol>
+  <li *ngFor="let record of (history);let step = index;">
+    <button [class.selected]="currentPreview === step"
+      (click)="handlePreview.emit(step)">{{step ? 'Go to move #' + step : 'Go to game start'}}</button>
+  </li>
+</ol>

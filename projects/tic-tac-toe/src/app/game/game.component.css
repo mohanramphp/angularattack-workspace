@@ -28,10 +28,6 @@ body {
     margin: 20px;
   }
 
-  ol, ul {
-    padding-left: 30px;
-  }
-
   .game {
     display: flex;
     flex-direction: row;

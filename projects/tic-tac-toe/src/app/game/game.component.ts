@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { GameState } from './store/state/game.state';
 import {
   selectHistory, selectSquares,
-  selectStatus, selectStopPlay
+  selectStatus, selectStopPlay, selectStepNumber
 } from './store/selectors/game.selectors';
 import { Reset, JumpTo, HandleCoinPlacement } from './store/actions/game.actions';
 
@@ -19,6 +19,7 @@ export class GameComponent {
   squares$ = this.store.pipe(select(selectSquares));
   status$ = this.store.pipe(select(selectStatus));
   stopPlay$ = this.store.pipe(select(selectStopPlay));
+  stepNumber$ = this.store.pipe(select(selectStepNumber));
 
   constructor(
     private store: Store<{ game: GameState }>
