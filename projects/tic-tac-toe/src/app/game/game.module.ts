@@ -6,7 +6,7 @@ import { GameRoutingModule } from './game-routing.module';
 import { GameComponent } from './game.component';
 import { BoardComponent } from './board/board.component';
 import { SquareComponent } from './board/square/square.component';
-import { GameReducers } from './store/reducers/game.reducers';
+import { gameReducers } from './store/reducers/game.reducers';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { GameReducers } from './store/reducers/game.reducers';
   imports: [
     SharedModule,
     GameRoutingModule,
-    StoreModule.forFeature('game', GameReducers)
+    StoreModule.forFeature('gameFeature', { game: gameReducers })
   ]
 })
 export class GameModule { }

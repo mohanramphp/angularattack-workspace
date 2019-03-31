@@ -10,7 +10,7 @@ export interface GameState {
 }
 
 export const initialGameState: GameState = {
-    history: Array(9).fill(null),
+    history: [{ squares: Array(9).fill(null) }],
     stepNumber: 0,
     winner: null,
     xIsNext: true

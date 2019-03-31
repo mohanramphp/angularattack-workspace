@@ -1,16 +1,17 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { GameState } from '../state/game.state';
 
-export const selectGame = ({ game }): GameState => game;
+export const selectGameFeature = createFeatureSelector<any, { game: GameState }>('gameFeature');
+
+
+export const selectGame = createSelector(
+    selectGameFeature,
+    ({ game }) => game
+);
 
 export const selectHistory = createSelector(
     selectGame,
     ({ history }) => history
-);
-
-export const selectXIsNext = createSelector(
-    selectGame,
-    ({ xIsNext }) => xIsNext
 );
 
 export const selectStepNumber = createSelector(
@@ -18,9 +19,9 @@ export const selectStepNumber = createSelector(
     ({ stepNumber }) => stepNumber
 );
 
-export const selectWinner = createSelector(
+export const selectStopPlay = createSelector(
     selectGame,
-    ({ winner }) => winner
+    ({ winner }) => !!winner
 );
 
 export const selectSquares = createSelector(

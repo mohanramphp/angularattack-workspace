@@ -1,9 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, OnInit, Input,
+  Output, EventEmitter, ChangeDetectionStrategy
+} from '@angular/core';
 
 @Component({
   selector: 'app-square',
   templateUrl: './square.component.html',
-  styleUrls: ['./square.component.css']
+  styleUrls: ['./square.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SquareComponent implements OnInit {
 

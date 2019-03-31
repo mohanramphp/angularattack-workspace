@@ -1,9 +1,11 @@
 import {
   Component, OnInit, Inject,
-  Input, Output, EventEmitter
+  Input, Output, EventEmitter, ChangeDetectionStrategy
 } from '@angular/core';
+
 import { BOARD_TOKEN } from './config/board.token';
 import { board } from './config/board.data';
+import { Coin } from '../model/game.model';
 
 @Component({
   selector: 'app-board',
@@ -14,17 +16,18 @@ import { board } from './config/board.data';
       provide: BOARD_TOKEN,
       useValue: board
     }
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit {
 
-  @Input() squares: Array<'X' | 'O' | null>;
+  @Input() squares: Array<Coin>;
   @Input() xIsNext: boolean;
   @Input() stopPlay: boolean;
   @Output() coinPlacement: EventEmitter<number> = new EventEmitter<number>();
   @Output() reset: EventEmitter<void> = new EventEmitter<void>();
 
-  winner: 'X' | 'O' | null;
+  winner: Coin;
 
   constructor(
     @Inject(BOARD_TOKEN) public rows: Array<Array<number>>
@@ -32,8 +35,6 @@ export class BoardComponent implements OnInit {
     // this.defaultBoardSetup();
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
 }

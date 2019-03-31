@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GamePreviewComponent } from './game-preview/game-preview.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [GamePreviewComponent],
   imports: [
     CommonModule
   ],

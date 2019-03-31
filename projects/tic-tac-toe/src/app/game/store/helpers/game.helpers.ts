@@ -28,10 +28,10 @@ export const handleCoinPlacement = (gameState: GameState, index: number): GameSt
 
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    if (this.winner || squares[index]) {
-        return;
+    if (winner || squares[index]) {
+        return { ...gameState };
     }
-    squares[index] = this.xIsNext ? 'X' : 'O';
+    squares[index] = xIsNext ? 'X' : 'O';
     stepNumber = history.length;
     history = history.concat({ squares });
     xIsNext = !xIsNext;

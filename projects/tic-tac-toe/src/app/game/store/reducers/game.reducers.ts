@@ -2,7 +2,7 @@ import { GameActions, GameAction } from '../actions/game.actions';
 import { GameState, initialGameState } from '../state/game.state';
 import { calculateWinner, handleCoinPlacement } from '../helpers/game.helpers';
 
-export const GameReducers = (
+export const gameReducers = (
     state: GameState = initialGameState, action: GameActions
 ): GameState => {
     switch (action.type) {
@@ -38,5 +38,9 @@ export const GameReducers = (
                 winner: calculateWinner(history[step].squares)
             };
         }
+
+        default:
+            return { ...state };
+
     }
 };
