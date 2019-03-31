@@ -35,6 +35,8 @@ MIT
 @angular/router
 MIT
 
+@app/common-lib
+
 @ngrx/store
 MIT
 
