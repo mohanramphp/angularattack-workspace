@@ -19,7 +19,7 @@
     <div>
       <div class="status">{{(status$ | async)}}</div>
     </div>
-    <app-game-preview [currentPreview]="(stepNumber$ | async)" [history]="(history$ | async)"
-      (handlePreview)="jumpTo($event)"></app-game-preview>
+    <lib-game-preview [currentPreview]="(stepNumber$ | async)" [history]="(history$ | async)"
+      (handlePreview)="jumpTo($event)"></lib-game-preview>
   </div>
 </div>
