@@ -23,3 +23,11 @@
     2. Frame the app model
     3. handle the actions in reducer
 11. Create a library to serve the common component for game (game-preview) - in progress
+
+# Application commands
+1. To run the app in local environment
+> npm run app:dev
+2. To build, run below command
+> npm run app:prod
+3. To build and deploy to github
+> npm run app:deploy

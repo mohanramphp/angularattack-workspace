@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "app-common-lib": [
+        "dist/app-common-lib"
+      ],
+      "app-common-lib/*": [
+        "dist/app-common-lib/*"
+      ]
+    }
   }
 }

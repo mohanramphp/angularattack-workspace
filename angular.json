@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "app-common-lib": {
+      "root": "projects/app-common-lib",
+      "sourceRoot": "projects/app-common-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/app-common-lib/tsconfig.lib.json",
+            "project": "projects/app-common-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-common-lib/src/test.ts",
+            "tsConfig": "projects/app-common-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/app-common-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/app-common-lib/tsconfig.lib.json",
+              "projects/app-common-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tic-tac-toe"
