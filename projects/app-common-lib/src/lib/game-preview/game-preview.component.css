@@ -99,7 +99,9 @@
 .breadcrumb a:before {
 	content: counter(flag);
   counter-increment: flag;
-  text-align: center;
+	text-align: center;
+	color: #3c3c3c;
+    opacity: 0.8;
 	/*some styles now*/
 	border-radius: 100%;
 	width: 20px;
@@ -127,7 +129,8 @@
 }
 .flat a:hover, .flat a.active,
 .flat a:hover:after, .flat a.active:after{
-	background: #9EEB62;
+	background: #4285f4;
+    color: white;
 }
 
 legend {
