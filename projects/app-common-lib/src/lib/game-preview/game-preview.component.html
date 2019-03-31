@@ -1,6 +1,16 @@
-<ol>
+<!-- <ol>
   <li *ngFor="let record of (history);let step = index;">
     <button [class.selected]="currentPreview === step"
       (click)="handlePreview.emit(step)">{{step ? 'Go to move #' + step : 'Go to game start'}}</button>
   </li>
-</ol>
+</ol> -->
+
+<fieldset>
+  <legend>Game Preview</legend>
+  <div class="breadcrumb flat">
+    <a *ngFor="let record of history;let step = index;" [class.active]="currentPreview === step"
+      (click)="handlePreview.emit(step)">
+      {{step ? 'Move #' + step : 'Game start'}}
+    </a>
+  </div>
+</fieldset>

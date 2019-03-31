@@ -22,7 +22,11 @@
 
     2. Frame the app model
     3. handle the actions in reducer
-11. Create a library to serve the common component for game (game-preview) - in progress
+11. Create a library to serve the common component for game (game-preview) - done
+12. Improve the look and feel for - in progress
+    1. Game review
+    2. Board and Square
+13. add effects to persist the game data
 
 # Application commands
 1. To run the app in local environment
