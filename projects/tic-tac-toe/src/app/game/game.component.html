@@ -11,7 +11,7 @@
 </div> -->
 <div class="game">
   <div class="game-board">
-    <app-board [stopPlay]="!!winner" [squares]="(current$ | async).squares" (reset)="handleReset()"
+    <app-board [stopPlay]="!!winner" [squares]="history[stepNumber].squares" (reset)="handleReset()"
       (coinPlacement)="handleCoinPlacement($event)">
     </app-board>
   </div>
@@ -23,7 +23,7 @@
       </ng-template>
     </div>
     <ol>
-      <li *ngFor="let record of history;let step = index">
+      <li *ngFor="let record of history;let step = index;">
         <button (click)="jumpTo(step)">{{step ? 'Go to move #' + step : 'Go to game start'}}</button>
       </li>
     </ol>

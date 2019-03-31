@@ -40,3 +40,8 @@ body {
   .game-info {
     margin-left: 20px;
   }
+
+  button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }

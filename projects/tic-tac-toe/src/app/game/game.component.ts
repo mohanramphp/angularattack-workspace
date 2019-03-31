@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
+import { Coin, Game } from './model/game.model';
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -9,13 +11,13 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 })
 export class GameComponent implements OnInit, OnDestroy {
 
-  history: Array<{ squares: Array<null | 'X' | 'O'> }> = [];
-  current$: BehaviorSubject<{ squares: Array<null | 'X' | 'O'> }> =
-    new BehaviorSubject<{ squares: Array<null | 'X' | 'O'> }>({
+  history: Array<Game> = [];
+  current$: BehaviorSubject<Game> =
+    new BehaviorSubject<Game>({
       squares: Array(9).fill(null)
     });
   xIsNext: boolean;
-  winner: null | 'X' | 'O';
+  winner: Coin;
   stepNumber: number;
 
   constructor() {
@@ -30,7 +32,9 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   handleCoinPlacement(i: number) {
+    this.history = this.history.slice(0, this.stepNumber + 1);
     const history = this.history.slice();
+
     const current = this.history[history.length - 1];
     const squares = current.squares.slice();
     if (this.winner || squares[i]) {
@@ -55,12 +59,14 @@ export class GameComponent implements OnInit, OnDestroy {
   jumpTo(step: number) {
     this.stepNumber = step;
     this.xIsNext = (this.stepNumber % 2) === 0;
-    const current = this.history[step];
-    this.history = this.history.slice(0, step - 1);
-    this.current$.next(current);
+    const { squares } = this.history[step];
+    this.winner = this.calculateWinner(squares);
+    // const current = this.history[step];
+    // this.history = this.history.slice(0, step - 1);
+    // this.current$.next(current);
   }
 
-  calculateWinner(squares): null | 'X' | 'O' {
+  calculateWinner(squares): Coin {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
